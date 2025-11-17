@@ -1,0 +1,23 @@
+scheduler_project/
+├─ manage.py
+├─ scheduler_project/
+│  ├─ __init__.py
+│  ├─ settings.py
+│  ├─ urls.py
+│  └─ wsgi.py
+└─ booking/                
+   ├─ migrations/
+   ├─ __init__.py
+   ├─ admin.py
+   ├─ apps.py
+   ├─ models.py
+   ├─ views.py
+   ├─ urls.py
+   ├─ templates/
+   │  └─ booking/
+   │     ├─ base.html
+   │     └─ calendar.html
+   └─ static/
+      └─ booking/
+         ├─ main.css
+         └─ main.js
