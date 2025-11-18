@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<meta charset="UTF-8">
+<title>CarbonCare Detailing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Open+Sans:wght@400;600&display=swap');
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(180deg, #0d1b2a, #1b263b);
+    color: white;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+::selection {
+    background: #608bd0;
+    color: #000;
+}
+
+/* NAVIGATION — CENTERED */
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(4px);
+}
+.nav a {
+    background: #608bd0;
+    padding: 10px 26px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: 'Orbitron';
+    font-size: 1rem;
+    color: #000;
+    box-shadow: 0 0 12px #84c6e8aa;
+    transition: 0.3s;
+}
+.nav a:hover {
+    background: #083479;
+    color: #fff;
+    box-shadow: 0 0 18px #0a5bb8;
+}
+/* HERO */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5vw 5%;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    /* Margin for desktop/larger screens to clear fixed nav */
+    margin-top: 100px; 
+}
+.hero-logo img {
+    /* --- REVERTED TO ORIGINAL SIZE FOR SIDE-BY-SIDE LAYOUT (Larger Screens) --- */
+    width: 35vw; 
+    max-width: 700px;
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.3));
+}
+.hero-text {
+    max-width: 45vw;
+    animation: fadeInUp 1s ease forwards;
+}
+.hero-text h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.hero-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+/* BUTTON */
+.btn-pricing {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 12px 30px;
+    background: #608bd0;
+    color: #000;
+    font-weight: 700;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #84c6e8aa;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.btn-pricing:hover {
+    background: #083479;
+    box-shadow: 0 0 20px #0a5bb8;
+    color: #fff;
+}
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Bubbles */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    animation: rise linear infinite;
+}
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        transform: translateY(-120vh) scale(0.5);
+    }
+}
+/* Pricing / Services Section */
+.pricing {
+    padding: 80px 8vw;
+    background: #0f1c2d;
+}
+.pricing h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.6rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+.price-card {
+    background: #10213d;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #608bd0aa;
+    box-shadow: 0 0 20px #608bd033;
+    transition: 0.3s;
+}
+.price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 35px #608bd0aa;
+    border-color: #608bd0;
+}
+.price-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+.price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #90bff7;
+}
+.section-label {
+    text-align: center;
+    margin: 60px 0 20px 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: #ade8f4;
+}
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #0a1625;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+/* RESPONSIVE - STACK HERO ON SMALL SCREENS (<= 900px) */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .hero-logo img {
+        /* Kept larger for stacked layout */
+        width: 70%;
+    }
+    .hero-text {
+        max-width: 100%;
+    }
+}
+/* RESPONSIVE - STACK NAV ON VERY SMALL SCREENS (<= 500px) */
+@media (max-width: 500px) {
+    .nav {
+        flex-direction: column;
+        padding: 10px 0; 
+        gap: 10px;
+    }
+    .btn-pricing {
+        width: 80%;
+        margin: 20px auto 0 auto;
+    }
+    /* Kept the fix for fixed nav overlap on mobile */
+    .hero {
+        margin-top: 200px; 
+    }
+}
+</style>
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body>
+<div class="nav">
+    <a href="index.html">Home</a>
+    <a href="#pricing">Services</a> <a href="contact.html">Contact</a>
+</div>
+<section class="hero">
+    <div class="hero-logo">
+        <img src="carbon.png" alt="CarbonCare Logo">
+    </div>
+    <div class="hero-text">
+        <h1>CarbonCare Detailing</h1>
+        <p>Precision. Passion. Perfection.</p>
+        <a href="#pricing" class="btn-pricing">View Pricing / Services</a>
+    </div>
+    <div class="bubbles"></div>
+</section>
+<section id="pricing" class="pricing">
+    <h2>Pricing & Packages</h2>
+    <div class="pricing-grid">
+        <div class="price-card"><h3>Basic Maintenance Cleaning</h3><div class="price">$60</div><p>Foam cannon wash, hand wash, vacuum, windows.</p></div>
+        <div class="price-card"><h3>Full Exterior Detail</h3><div class="price">$150</div><p>Clay bar, polish, wheels, trim restore, sealant.</p></div>
+        <div class="price-card"><h3>Full Interior Detail</h3><div class="price">$175</div><p>Deep clean, stain treatment, extraction, leather/plastic.</p></div>
+        <div class="price-card"><h3>Full Detail</h3><div class="price">$299</div><p>Complete interior + exterior with odor prevention.</p></div>
+        <div class="price-card"><h3>Full Detail Package</h3><div class="price">$360</div><p>Clay bar, wax + polish, full interior & exterior.</p></div>
+        <div class="price-card"><h3>Underbody Wash</h3><div class="price">$50</div><p>Salt & grime removal, deep wash.</p></div>
+        <div class="price-card"><h3>Full Undercoat</h3><div class="price">$299</div><p>Rust formula, prep, full protective coating.</p></div>
+    </div>
+    <div class="section-label">Add-Ons</div>
+    <div class="pricing-grid">
+        <div class="price-card"><h3>Engine Bay Cleaning</h3><div class="price">$50</div><p>Safe deep cleaning, grease removal.</p></div>
+        <div class="price-card"><h3>Ceramic Coat Spray</h3><div class="price">$120</div><p>6–12 months protection & shine.</p></div>
+    </div>
+</section>
+<footer>© 2025 CarbonCare Detailing. All rights reserved.</footer>
+<script>
+    // Bubbles
+    const bubbleContainer = document.querySelector('.bubbles');
+    const bubbleCount = 30;
+    for (let i = 0; i < bubbleCount; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        const size = Math.random() * 30 + 10;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 15 + 15;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${left}%`;
+        bubble.style.animationDuration = `${duration}s`;
+        bubbleContainer.appendChild(bubble);
+    }
+</script>
+</body>
+</html>
